@@ -1,27 +1,19 @@
 package org.example.utils;
 
-import java.util.Random;
+import com.github.javafaker.service.FakeValuesService;
+import com.github.javafaker.service.RandomService;
+
+import java.util.Locale;
+
 
 
 public class Randomizer {
-    public static String randomString() {
-        int leftLimit = 97;
-        int rightLimit = 122;
-        int targetStringLength = 8;
-        Random random = new Random();
-        StringBuilder buffer = new StringBuilder(targetStringLength);
-        for (int i = 0; i < targetStringLength; i++) {
-            int randomLimitedInt = leftLimit + (int)
-                    (random.nextFloat() * (rightLimit - leftLimit + 1));
-            buffer.append((char) randomLimitedInt);
-        }
-        String generatedString = buffer.toString();
+   public static String randomString() {
+    FakeValuesService fakeValuesService = new FakeValuesService(
+            new Locale("en-US"), new RandomService());
 
-        return generatedString;
-
-
-
-    }
+       return fakeValuesService.bothify("???????");
+}
 
     public static String randomEmail(){
 
