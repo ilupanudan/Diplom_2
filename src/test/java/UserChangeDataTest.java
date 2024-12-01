@@ -13,7 +13,7 @@ public class UserChangeDataTest {
 
 
     @After
-    public void CleanUp() {
+    public void cleanUp() {
         deleteUser();
     }
 
